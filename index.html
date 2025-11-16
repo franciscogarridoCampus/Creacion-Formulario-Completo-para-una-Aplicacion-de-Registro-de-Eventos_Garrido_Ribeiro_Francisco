@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Asistentes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Registro de Asistentes al Evento</h1>
+
+    <form action="procesar_evento.php" method="POST" enctype="multipart/form-data" novalidate class="needs-validation">
+
+        <!-- INFORMACIÓN PERSONAL -->
+        <div class="card mb-4">
+            <div class="card-header">Información Personal</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre completo</label>
+                    <input type="text" name="nombre" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Correo electrónico</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Número de teléfono</label>
+                    <input type="tel" name="telefono" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fecha de nacimiento</label>
+                    <input type="date" name="nacimiento" class="form-control" required>
+                </div>
+
+                <label class="form-label">Género</label>
+                <div class="mb-3">
+                    <input type="radio" name="genero" value="Masculino" required> Masculino
+                    <input type="radio" name="genero" value="Femenino" class="ms-3"> Femenino
+                </div>
+
+            </div>
+        </div>
+
+        <!-- INFORMACIÓN DEL EVENTO -->
+        <div class="card mb-4">
+            <div class="card-header">Información del Evento</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label class="form-label">Fecha del evento</label>
+                    <input type="date" name="fecha_evento" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tipo de entrada</label>
+                    <select name="tipo_entrada" class="form-select">
+                        <option value="General">General</option>
+                        <option value="VIP">VIP</option>
+                        <option value="Estudiante">Estudiante</option>
+                    </select>
+                </div>
+
+                <label class="form-label">Preferencias de comida</label>
+                <div class="mb-3">
+                    <div><input type="checkbox" name="comida[]" value="Vegetariano"> Vegetariano</div>
+                    <div><input type="checkbox" name="comida[]" value="Vegano"> Vegano</div>
+                    <div><input type="checkbox" name="comida[]" value="Sin gluten"> Sin gluten</div>
+                    <div><input type="checkbox" name="comida[]" value="Sin preferencias"> Sin preferencias</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- INFORMACIÓN DE ACCESO -->
+        <div class="card mb-4">
+            <div class="card-header">Información de Acceso</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre de usuario</label>
+                    <input type="text" name="usuario" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Confirmación de contraseña</label>
+                    <input type="password" name="password2" class="form-control" required>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PREFERENCIAS DE CONTACTO -->
+        <div class="card mb-4">
+            <div class="card-header">Preferencias de Contacto</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <input type="checkbox" name="notificaciones" value="Sí"> Deseo recibir notificaciones por email
+                </div>
+
+                <div class="mb-3">
+                    <input type="checkbox" name="terminos" value="Acepto" required>
+                    Acepto los términos y condiciones
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ENCUESTA ADICIONAL -->
+        <div class="card mb-4">
+            <div class="card-header">Encuesta Adicional</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label class="form-label">Calificación de eventos anteriores (1-10)</label>
+                    <input type="range" name="calificacion" min="1" max="10" class="form-range">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Comentarios adicionales</label>
+                    <textarea name="comentarios" class="form-control" rows="4"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ARCHIVO -->
+        <div class="mb-4 card">
+            <div class="card-header">Adjuntar archivo</div>
+            <div class="card-body">
+                <input type="file" name="archivo" class="form-control">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Enviar registro</button>
+
+    </form>
+</div>
+
+</body>
+</html>
